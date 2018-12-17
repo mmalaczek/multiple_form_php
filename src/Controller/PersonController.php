@@ -28,7 +28,7 @@ class PersonController extends AbstractController
 //            $this->session->set(CardsTransferFormType::FORM_NAME, $form->getData());
             return $this->redirectToRoute('second_step');
         }
-        return $this->render('person/form.html.twig', [
+        return $this->render('person/_step1.html.twig', [
             'form' => $form->createView()
         ]);
 
