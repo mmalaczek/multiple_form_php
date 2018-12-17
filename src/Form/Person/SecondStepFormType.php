@@ -25,7 +25,8 @@ class SecondStepFormType extends AbstractType
             ->add('colors', ChoiceType::class, [
                 'constraints' => [new NotBlank()],
                 'required' => true,
-                'choices' => array_flip(Person::$colorList)
+                'choices' => array_flip(Person::$colorList),
+                'multiple' => true,
             ]);
     }
 

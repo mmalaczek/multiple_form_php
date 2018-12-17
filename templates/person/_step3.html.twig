@@ -2,18 +2,25 @@
 
 {% block body %}
 
-    <div class="container">
-        {{ form_start(form, {attr: {novalidate: 'novalidate'}}) }}
+<div class="container">
+    {{ form_start(form, {attr: {novalidate: 'novalidate'}}) }}
 
+        <div class="msf-view">
+            <div class="row">
+                <div class="col-md-6 col-md-offset-3">
+                    <div class="form-group">
+                        <label>Czy umiesz pływać? tak/nie</label>
+                        {{ form_widget(form.canSwim) }}
+                    </div>
+                </div>
+            </div>
+        </div>
 
-        <h3>Rechnungsanschrift</h3>
-
-
-        {{ form_widget(form) }}
-
-
-        <button class="btn btn-success float-right" type="submit">Weiter</button>
-
-        {{ form_end(form) }}
-    </div>
+        <div class="row">
+            <div class="col-md-3 col-md-offset-6">
+                <button type="submit" data-type="submit" class="btn btn-primary msf-nav-button">Submit</button>
+            </div>
+        </div>
+    {{ form_end(form) }}
+</div>
 {% endblock %}
