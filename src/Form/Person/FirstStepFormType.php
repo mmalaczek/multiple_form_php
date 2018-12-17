@@ -12,7 +12,11 @@ use Symfony\Component\Validator\Constraints\NotBlank;
 
 class FirstStepFormType extends AbstractType
 {
-    public function buildForm(FormBuilderInterface $builder, array $options)
+    /**
+     * @param FormBuilderInterface $builder
+     * @param array $options
+     */
+    public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
             ->add('name', TextType::class, ['constraints' => [
@@ -21,11 +25,14 @@ class FirstStepFormType extends AbstractType
             ->add('gender', ChoiceType::class, [
                 'constraints' => [new NotBlank()],
                 'required' => true,
-                'choices' => array_flip(['Kobieta', 'Mężczyzna'])
+                'choices' => array_flip(Person::$genderList)
             ]);
     }
 
-    public function configureOptions(OptionsResolver $resolver)
+    /**
+     * @param OptionsResolver $resolver
+     */
+    public function configureOptions(OptionsResolver $resolver): void
     {
         $resolver->setDefaults([
             'data_class' => Person::class,

@@ -7,6 +7,26 @@ use Symfony\Component\Validator\Constraints as Assert;
 class Person
 {
     /**
+     * @var array
+     */
+    public static $genderList = [
+        'Kobieta',
+        'Mężczyzna',
+    ];
+
+    /**
+     * @var array
+     */
+    public static $colorList = [
+        'biały',
+        'czerwony',
+        'niebieski',
+        'zielony',
+        'żółty',
+        'czarny',
+    ];
+
+    /**
      * @var string
      * @Assert\Length(
      * min=2,
