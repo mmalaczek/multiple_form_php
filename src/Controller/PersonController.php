@@ -36,9 +36,29 @@ class PersonController extends AbstractController
 
     public function secondStep(Request $request)
     {
+        $form = $this->createForm(SecondStepFormType::class);
+        $form->handleRequest($request);
+        if ($form->isSubmitted() && $form->isValid()) {
+            return $this->redirectToRoute('third_step');
+        }
 
+        return $this->render('person/_step2.html.twig', [
+            'form' => $form->createView()
+        ]);
     }
 
+    public function thirdStep(Request $request)
+    {
+        $form = $this->createForm(ThirdStepFormType::class);
+        $form->handleRequest($request);
+        if ($form->isSubmitted() && $form->isValid()) {
+            return $this->redirectToRoute('completed');
+        }
+
+        return $this->render('person/_step3.html.twig', [
+            'form' => $form->createView()
+        ]);
+    }
 
     /**
      * @Route("/completed", name="completed")
