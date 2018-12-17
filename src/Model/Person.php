@@ -31,12 +31,12 @@ class Person
      * @Assert\Length(
      * min=2,
      * max=42,
-     * minMessage = "superadmin.lastname.too.short",
-     * maxMessage = "superadmin.lastname.too.long"
+     * minMessage = "Imię musi mieć minimum 2 znaki",
+     * maxMessage = "Imię może zawierać max 42 znaki"
      * )
      * @Assert\Regex(pattern="/^[a-zÀ-ÿąćęłńóśźżĄĆĘŁŃÓŚŹŻẞĀāĂăČčĐđĎďĒēĕĖėĚěĢģĪīĮįĶķĹĺĻļĽľŅņŇňŌōŐőŒœŕŖŗŘřŞşŠšŢţťŰűŲųŸŽž\- ]+$/i",
      * htmlPattern = "^[a-zA-ZÀ-ÿąćęłńóśźżĄĆĘŁŃÓŚŹŻẞĀāĂăČčĐđĎďĒēĕĖėĚěĢģĪīĮįĶķĹĺĻļĽľŅņŇňŌōŐőŒœŕŖŗŘřŞşŠšŢţťŰűŲųŸŽž\- ]+$",
-     * message="card.lastname.onlyalpha")
+     * message="Nieprawidłowe znaki")
      */
     protected $name;
 
@@ -128,6 +128,5 @@ class Person
     {
         $this->canSwim = $canSwim;
     }
-
 
 }
