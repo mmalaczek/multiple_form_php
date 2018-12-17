@@ -1,0 +1,12 @@
+
+index:
+  path: /
+  controller: App\Controller\DefaultController::index
+
+form_person:
+  path: /form
+  controller: App\Controller\PersonController::form
+
+completed:
+  path: /completed
+  controller: App\Controller\PersonController::completed
