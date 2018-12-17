@@ -5,26 +5,7 @@
 <div class="container">
 
     <h1>Reservierung</h1>
-
-    {% if workflow_has_marked_place(personContainer, 'step1') %}
-
         {{ include('person/_step1.html.twig', {  }) }}
-
-    {% endif %}
-    {% if workflow_has_marked_place(personContainer, 'step2') %}
-
-        {{ include('person/_step2.html.twig', {  }) }}
-
-    {% endif %}
-    {% if workflow_has_marked_place(personContainer, 'step3') %}
-
-        {{ include('person/_step3.html.twig', { }) }}
-
-    {% endif %}
-    {% if workflow_has_marked_place(personContainer, 'confirm') %}
-
-
-    {% endif %}
 
 </div>
 {% endblock %}

@@ -3,9 +3,17 @@ index:
   path: /
   controller: App\Controller\DefaultController::index
 
-form_person:
-  path: /form/{step}
-  controller: App\Controller\PersonController::form
+first_step:
+  path: /first-step
+  controller: App\Controller\PersonController::firstStep
+
+second_step:
+  path: /second-step
+  controller: App\Controller\PersonController::secondStep
+
+third_step:
+  path: /third-step
+  controller: App\Controller\PersonController::thirdStep
 
 completed:
   path: /completed
