@@ -40,6 +40,9 @@ class Person
      */
     protected $name;
 
+    /**
+     * @var int
+     */
     protected $gender;
 
     /**
@@ -72,15 +75,15 @@ class Person
     }
 
     /**
-     * @return string
+     * @return int
      */
-    public function getGender(): ?string
+    public function getGender(): ?int
     {
         return $this->gender;
     }
 
     /**
-     * @param string $gender
+     * @param int $gender
      */
     public function setGender($gender): void
     {
