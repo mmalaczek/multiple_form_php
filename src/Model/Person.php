@@ -44,7 +44,7 @@ class Person
 
     /**
      * @var int
-     * @Assert\Length(min=1, max=100, maxMessage = "Wiek musi być w przedziale 1-100")
+     * @Assert\Range(min=1, max=100, maxMessage = "Wiek musi być w przedziale 1-100")
      */
     protected $age;
 
