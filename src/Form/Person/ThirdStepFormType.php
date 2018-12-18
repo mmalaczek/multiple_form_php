@@ -10,6 +10,8 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 
 class ThirdStepFormType extends AbstractType
 {
+    public const FORM_NAME = 'third_step';
+
     /**
      * @param FormBuilderInterface $builder
      * @param array $options
@@ -30,4 +32,13 @@ class ThirdStepFormType extends AbstractType
             'data_class' => Person::class,
         ]);
     }
+
+    /**
+     * @return string
+     */
+    public function getBlockPrefix(): string
+    {
+        return self::FORM_NAME;
+    }
+
 }

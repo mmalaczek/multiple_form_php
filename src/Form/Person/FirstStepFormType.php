@@ -12,6 +12,8 @@ use Symfony\Component\Validator\Constraints\NotBlank;
 
 class FirstStepFormType extends AbstractType
 {
+    public const FORM_NAME = 'first_step';
+
     /**
      * @param FormBuilderInterface $builder
      * @param array $options
@@ -37,6 +39,14 @@ class FirstStepFormType extends AbstractType
         $resolver->setDefaults([
             'data_class' => Person::class,
         ]);
+    }
+
+    /**
+     * @return string
+     */
+    public function getBlockPrefix(): string
+    {
+        return self::FORM_NAME;
     }
 
 }
