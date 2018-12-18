@@ -51,7 +51,7 @@ class Person
      */
     protected $age;
 
-    protected $colors;
+    protected $colors = [];
 
     /**
      * @var bool
@@ -114,6 +114,11 @@ class Person
     public function setColors($colors): void
     {
         $this->colors = $colors;
+    }
+
+    public function getCountColors()
+    {
+        return \count($this->colors);
     }
 
     /**

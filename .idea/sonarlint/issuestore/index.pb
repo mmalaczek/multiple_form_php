@@ -124,3 +124,5 @@ V
 &src/Form/Person/SecondStepFormType.php,c\d\cd8d3aeb2c69990f5b196eacae4df432b974c62b
 D
 src/Model/Person.php,3\b\3b4e4e117f1cc3f6cda1b1d5f52ec390312da2f2
+J
+public/multi-step-form.css,0\6\061ab072e4ea720827c08344b7a0f25c1d5486dd

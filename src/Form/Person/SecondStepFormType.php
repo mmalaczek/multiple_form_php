@@ -7,6 +7,9 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Component\Form\FormError;
+use Symfony\Component\Form\FormEvent;
+use Symfony\Component\Form\FormEvents;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Validator\Constraints\NotBlank;
 
@@ -30,6 +33,19 @@ class SecondStepFormType extends AbstractType
                 'choices' => array_flip(Person::$colorList),
                 'multiple' => true,
             ]);
+
+        $builder->addEventListener(FormEvents::SUBMIT, function(FormEvent $event) {
+            $data = $event->getData();
+            if ($data === null) {
+                return;
+            }
+
+            $form = $event->getForm();
+            if ($data->getCountColors() !== 1  && $data->getCountColors() !== \count(Person::$colorList)) {
+                $form->addError(new FormError('Można wybrać albo 1 kolor albo wszystkie'));
+            }
+        });
+
     }
 
     /**
