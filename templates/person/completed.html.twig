@@ -2,8 +2,20 @@
 
 {% block body %}
 
-    <div class="container">
+    <div class="container" style="background: {{ color }}">
         <h1>Complete</h1>
+        <div class="row">
+            Imię: {{ name }}
+        </div>
+        <div class="row">
+            Płeć: {{ gender }}
+        </div>
+        <div class="row">
+            Imię: {{ name }}
+        </div>
+        <div class="row">
+            Czy umiesz pływać: {{ canSwim }}
+        </div>
     </div>
 
 {% endblock %}

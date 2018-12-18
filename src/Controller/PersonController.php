@@ -69,9 +69,11 @@ class PersonController extends AbstractController
     public function completed()
     {
         $data = [];
+        $color = '#fff';
 
         return $this->render('person/completed.html.twig', [
-            'data' => $data
+            'data' => $data,
+            'color' => $color,
         ]);
     }
 
