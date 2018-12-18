@@ -2,30 +2,24 @@
 
 namespace App\Controller;
 
-use App\Entity\PersonContainer;
 use App\Form\Person\FirstStepFormType;
 use App\Form\Person\SecondStepFormType;
 use App\Form\Person\ThirdStepFormType;
-use App\Model\Person;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpFoundation\Session\Session;
 
 class PersonController extends AbstractController
 {
+    /**
+     * @param Request $request
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
+     */
     public function firstStep(Request $request)
     {
-        $session = $request->getSession();
-        if ($session === null) {
-            $session = new Session();
-            $session->start();
-        }
-
         $form = $this->createForm(FirstStepFormType::class);
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
-//            $this->session->set(CardsTransferFormType::FORM_NAME, $form->getData());
             return $this->redirectToRoute('second_step');
         }
         return $this->render('person/_step1.html.twig', [
@@ -34,11 +28,16 @@ class PersonController extends AbstractController
 
     }
 
+    /**
+     * @param Request $request
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
+     */
     public function secondStep(Request $request)
     {
         $form = $this->createForm(SecondStepFormType::class);
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
+//            $this->get('session')->set(SecondStepFormType::FORM_NAME, $form->getData());
             return $this->redirectToRoute('third_step');
         }
 
@@ -47,6 +46,10 @@ class PersonController extends AbstractController
         ]);
     }
 
+    /**
+     * @param Request $request
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
+     */
     public function thirdStep(Request $request)
     {
         $form = $this->createForm(ThirdStepFormType::class);
@@ -65,7 +68,10 @@ class PersonController extends AbstractController
      */
     public function completed()
     {
+        $data = [];
+
         return $this->render('person/completed.html.twig', [
+            'data' => $data
         ]);
     }
 
