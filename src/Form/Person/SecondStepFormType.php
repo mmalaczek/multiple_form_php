@@ -22,10 +22,10 @@ class SecondStepFormType extends AbstractType
     {
         $builder
             ->add('age', TextType::class, ['constraints' => [
-                new NotBlank()
+                new NotBlank(['message' => 'Pole wiek nie może być puste'])
             ]])
             ->add('colors', ChoiceType::class, [
-                'constraints' => [new NotBlank()],
+                'constraints' => [new NotBlank(['message' => 'Pole kolory nie może być puste'])],
                 'required' => true,
                 'choices' => array_flip(Person::$colorList),
                 'multiple' => true,

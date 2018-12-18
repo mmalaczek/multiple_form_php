@@ -22,10 +22,10 @@ class FirstStepFormType extends AbstractType
     {
         $builder
             ->add('name', TextType::class, ['constraints' => [
-                new NotBlank()
+                new NotBlank(['message' => 'Pole imię nie może być puste'])
             ]])
             ->add('gender', ChoiceType::class, [
-                'constraints' => [new NotBlank()],
+                'constraints' => [new NotBlank(['message' => 'Pole płeć nie może być puste'])],
                 'required' => true,
                 'choices' => array_flip(Person::$genderList)
             ]);
